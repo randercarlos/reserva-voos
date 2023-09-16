@@ -1,0 +1,49 @@
+version: '3'
+
+services:
+  reserva-voos-app:
+    build:
+      context: .
+      dockerfile: ___docker/Dockerfile
+    container_name: reserva-voos-app
+    restart: unless-stopped
+    volumes:
+      - .:/var/www
+    depends_on:
+      - reserva-voos-db
+      - reserva-voos-web
+    networks:
+      - reserva-voos-network
+
+  reserva-voos-web:
+    image: nginx:latest
+    container_name: reserva-voos-web
+    restart: unless-stopped
+    ports:
+      - "8000:80"
+    volumes:
+      - .:/var/www
+      - ./___docker/nginx:/etc/nginx/conf.d
+    networks:
+      - reserva-voos-network
+
+  reserva-voos-db:
+    image: mysql:5.6
+    container_name: reserva-voos-db
+    restart: unless-stopped
+    volumes:
+        - ./___docker/mysql:/var/lib/mysql
+    ports:
+      - "3307:3306"
+    environment:
+        MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+        MYSQL_DATABASE: ${DB_DATABASE}
+        MYSQL_USER: ${DB_USERNAME}
+        MYSQL_PASSWORD: ${DB_PASSWORD}
+    networks:
+      - reserva-voos-network
+
+
+networks:
+  reserva-voos-network:
+    driver: bridge
