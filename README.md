@@ -12,7 +12,7 @@ voos, aeroportos, cidades/estados, reservas e usuários.
 ![](https://ibb.co/cZNNZd)
 
 
-O sistema pode ser acessado em: https://reserva-voos.herokuapp.com
+O sistema pode ser acessado em: https://reserva-voos-8f0bbf625646.herokuapp.com/
 
 Área administrativa. Dados de acesso:
 
@@ -21,10 +21,9 @@ Senha: admin
 
 ## Iniciando
 
-Para acessar o sistema, informe o host ou domínio onde o sistema foi instalado. Ex: http://reserva-voos.local/
+Para acessar o sistema, informe o host ou domínio onde o sistema foi instalado. Ex: https://reserva-voos-8f0bbf625646.herokuapp.com/
 
-Para acessar a área administrativa do sistema, informe o host ou domínio onde o sistema foi instalado. Em seguida,
-clique no link 'Entrar' na tela principal.
+Para acessar a área administrativa do sistema. clique no link 'Área Administrativa' na tela principal.
 
 O sistema mostrará a tela de login. Informe as seguintes credenciais:
 
